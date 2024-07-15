@@ -47,14 +47,14 @@ SELECT SOTR.Name, SOTR.Address, ZARP.Zarp from SOTR INNER JOIN ZARP on SOTR.Name
 /*Task 4*/
 SELECT SOTR.Name, SOTR.Address,
 CASE
-	  WHEN ZARP.Zarp is NULL THEN '0' 
+    WHEN ZARP.Zarp is NULL THEN '0' 
     ELSE ZARP.Zarp
 END AS Zarp from SOTR LEFT JOIN ZARP ON SOTR.Name = ZARP.Name; 
 
 /*Task 5*/
 SELECT SOTR.Name,
 CASE
-	  WHEN SUM(amount) is NULL THEN '0' 
+    WHEN SUM(amount) is NULL THEN '0' 
     ELSE SUM(amount)
 END AS amount FROM SOTR LEFT JOIN PAYMENTS ON SOTR.Name = PAYMENTS.Name GROUP BY SOTR.Name;
 
